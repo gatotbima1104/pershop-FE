@@ -5,6 +5,7 @@ import DashboardProduct from '../views/DashboardProduct.vue'
 import DashboardUser from '../views/DashboardUser.vue'
 import Home from '../views/Home.vue'
 import HomeDashboard from '../views/HomeDashboard.vue'
+import Movie from '../views/Movie.vue'
 
 
 // Create the router instance
@@ -17,6 +18,7 @@ const router = createRouter({
     { path: '/product', component: DashboardProduct },
     { path: '/user', component: DashboardUser },
     { path: '/dashboard', component: HomeDashboard },
+    { path: '/movie', component: Movie },
     
 
   ],
