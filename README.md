@@ -1,14 +1,10 @@
-# pershop-frontend
+## Pershop Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+![image](https://github.com/gatotbima1104/pershop-FE/assets/73319544/070d88d7-017f-4354-9225-3f12e67567ab)
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![image](https://github.com/gatotbima1104/pershop-FE/assets/73319544/f4d458a9-44a8-48b6-8056-2f88f657c523)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
