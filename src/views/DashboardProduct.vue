@@ -73,38 +73,38 @@ onMounted(() => {
           <input
             type="text"
             class="bg-slate-300 rounded p-2"
-            v-model="store.nameProduct"
+            v-model="store.productInfo.name"
           />
 
           <label>Price</label>
           <input
             type="number"
             class="bg-slate-300 rounded p-2"
-            v-model="store.priceProduct"
+            v-model="store.productInfo.price"
           />
 
           <label>Stock</label>
           <input
             type="number"
             class="bg-slate-300 rounded p-2"
-            v-model="store.stockProduct"
+            v-model="store.productInfo.stock"
           />
 
           <label>Category</label>
           <input
             type="text"
             class="bg-slate-300 rounded p-2"
-            v-model="store.categoryProduct"
+            v-model="store.productInfo.category"
           />
 
           <div class="flex justify-center items-center gap-5">
             <button
-              class="p-3 bg-yellow-600 text-white font-semibold rounded hover:bg-yellow-500" :class="store.isUpdated ? 'bg-blue-400' : 'bg-yellow-600'" 
+              class="p-3 bg-yellow-600 text-white font-semibold rounded hover:bg-yellow-500" :class="store.productInfo.isUpdated ? 'bg-blue-400' : 'bg-yellow-600'" 
             >
-              {{ store.isUpdated ? "update" : "add" }}
+              {{ store.productInfo.isUpdated ? "update" : "add" }}
             </button>
 
-            <button class="p-3 bg-red-600 text-white font-semibold rounded hover:bg-yellow-500" v-if="store.isUpdated === true" @click="store.clearStateUpdated">
+            <button class="p-3 bg-red-600 text-white font-semibold rounded hover:bg-yellow-500" v-if="store.productInfo.isUpdated === true" @click="store.clearStateUpdated">
                 cancel
             </button>
           </div>

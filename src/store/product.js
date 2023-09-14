@@ -4,38 +4,42 @@ import axiosInstance from "../lib";
 export const useProducts = defineStore("product", {
   state: () => ({
     products: [],
-    idProduct: "",
-    nameProduct: "",
-    priceProduct: 0,
-    stockProduct: 0,
-    categoryProduct: "" || null,
-    isUpdated: false,
+    productInfo: {
+      id: "",
+      name: "",
+      price: 0,
+      stock: 0,
+      category: "" || null,
+      isUpdated: false,
+    },
   }),
   actions: {
     async handleSubmit() {
-      const { nameProduct, priceProduct, categoryProduct, stockProduct } = this;
+      const { name, price, category, stock, isUpdated, id } = this.productInfo;
       try {
-        if (this.isUpdated == false) {
+        if (isUpdated == false) {
           await axiosInstance.post("/product", {
-            name: nameProduct,
-            price: priceProduct,
-            stock: stockProduct,
-            category: categoryProduct,
+            name,
+            price,
+            stock,
+            category,
           });
           alert("product added");
         } else {
-          await axiosInstance.patch("/product/" + this.idProduct, {
-            name: nameProduct,
-            price: priceProduct,
-            stock: stockProduct,
-            category: categoryProduct,
+          await axiosInstance.patch("/product/" + id, {
+            name,
+            price,
+            stock,
+            category,
           });
           alert("product updated successfully");
-          await this.clearStateUpdated()
+          await this.clearStateUpdated();
         }
         await this.getProduct();
       } catch (error) {
-        console.log(error);
+        if (error.response.status === 400) {
+          console.log("please fill form before submitting");
+        }
       }
     },
     async getProduct() {
@@ -52,20 +56,33 @@ export const useProducts = defineStore("product", {
       await this.getProduct();
     },
     async editData(objProduct) {
-      this.nameProduct = objProduct.name;
-      this.priceProduct = objProduct.price;
-      this.stockProduct = objProduct.stock;
-      this.categoryProduct = objProduct.category;
-      this.idProduct = objProduct.id;
-      this.isUpdated = true;
+      // this.productInfo.name = objProduct.name;
+      // this.productInfo.price = objProduct.price;
+      // this.productInfo.stock = objProduct.stock;
+      // this.productInfo.category = objProduct.category;
+      // this.productInfo.id = objProduct.id;
+      // this.productInfo.isUpdated = true;
+      this.productInfo = {
+        ...objProduct,
+        isUpdated: true
+      }
     },
     async clearStateUpdated() {
-      (this.isUpdated = false),
-        (this.idProduct = ""),
-        (this.nameProduct = ""),
-        (this.priceProduct = 0),
-        (this.stockProduct = 0),
-        (this.categoryProduct = "" || null);
+      // this.productInfo.isUpdated = false,
+      // this.productInfo.id = "",
+      // this.productInfo.name = "",
+      // this.productInfo.price = 0,
+      // this.productInfo.stock = 0,
+      // this.productInfo.category = "" || null;
+
+      this.productInfo = {
+        isUpdated: false,
+        id: '',
+        name: '',
+        price: 0,
+        stock: 0,
+        category: '' || null
+      }
     },
   },
 });
