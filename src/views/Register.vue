@@ -1,11 +1,19 @@
 <script setup>
 
-import { ref } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import axiosInstance  from '../lib/index'
 import router from '../router';
+import axios from 'axios'
+
 const nameInput = ref('')
 const usernameInput = ref('')
 const passwordInput = ref('')
+
+const movie = reactive({
+    id: '',
+    title: '',
+    description: '',
+})
 
 // const clearInput = () => {
 //     nameInput.value = ''
@@ -29,6 +37,19 @@ const handleSubmit = async () => {
     }
 }
 
+const getDataMovie = async () =>{
+    try {
+        const res = await axios.get('https:www//api.themoviedb.org/3/trending/movie/day?language=en-US')
+    
+        console.log(res.data)
+    } catch (error) {
+        console.log(error)
+    }
+}   
+
+onMounted(() => {
+    getDataMovie()
+})
 </script>
 
 <template>
