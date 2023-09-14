@@ -1,16 +1,4 @@
 <script setup>
-// // import axiosInstance from '../lib';
-// // import { ref, onMounted } from 'vue'
-// // const products = ref([])
-
-// // const fetchProduct = async () => {
-// //     const response = await axiosInstance.get('/product')
-// //     products.value = response.data
-// // }
-
-// // onMounted(()=>{
-// //     fetchProduct()
-// })
 
 import { onMounted } from "vue";
 import { useProducts } from "../store/index";
