@@ -1,5 +1,5 @@
 <script setup>
-import { authStore } from '../store';
+import { authStore } from '../store'
 
 const store = authStore()
 
@@ -16,6 +16,8 @@ const store = authStore()
 
                 <label>Password</label>
                 <input type="password" class="rounded p-2 bg-slate-100" placeholder="Your password" v-model="store.userInfo.password">
+
+                <div class="text-red-500">{{ store.errorMessage }}</div>
 
                 <button class="rounded p-2 bg-yellow-500 text-white font-semibol" type="submit" :disabled="store.userInfo.username=='' || store.userInfo.password=='' "> 
                     sign in

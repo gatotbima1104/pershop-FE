@@ -11,7 +11,8 @@ export const authStore = defineStore('auth',  {
       username: '' || null,
       password: '',
       role: '',
-    }
+    },
+    errorMessage: '' || null
   }),
   actions:{
     async handleRegister(){
@@ -49,13 +50,31 @@ export const authStore = defineStore('auth',  {
         this.userInfo.token = token
         this.userInfo.role = res.data.user.role
 
-        router.push('/product')
+        // router.push('/product')
+
+        if(this.userInfo.role === 'admin'){
+          router.push('/product')
+        }else{
+          router.push('/user')
+        }
         // console.log(token)
         // console.log(res.data.user.role)
 
       } catch (error) {
-        console.log(error)
+        console.log(error.response.data.message)
+        this.errorMessage = error.response.data.message
       }
     },
+
+    async handleLogoutUser(){
+      const confirmation = confirm('Are you sure you want to log out')
+      if(confirmation){
+        localStorage.removeItem('token')
+        router.push('/login')
+
+        this.userInfo.username = ''
+        this.userInfo.password = ''
+      } 
+    }
   },
 })

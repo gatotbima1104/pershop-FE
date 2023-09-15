@@ -1,8 +1,9 @@
 <script setup>
 import { onMounted } from "vue";
-import { useProducts } from "../store/index";
+import { useProducts, authStore } from "../store/index";
 
 const store = useProducts();
+const storeAuth = authStore();
 
 onMounted(() => {
   store.getProduct();
@@ -10,6 +11,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <button class="p-3 bg-red-400 m-3 rounded font-bold text-white hover:bg-red-600" @click="storeAuth.handleLogoutUser">logout</button>
   <div class="flex justify-center items-center">
     <div class="flex justify-center gap-5">
       <table class="mt-5 w-1/2">
@@ -101,6 +103,7 @@ onMounted(() => {
               cancel
             </button>
           </div>
+
         </div>
       </form>
     </div>
