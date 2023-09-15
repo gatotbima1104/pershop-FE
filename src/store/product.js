@@ -64,8 +64,8 @@ export const useProducts = defineStore("product", {
       // this.productInfo.isUpdated = true;
       this.productInfo = {
         ...objProduct,
-        isUpdated: true
-      }
+        isUpdated: true,
+      };
     },
     async clearStateUpdated() {
       // this.productInfo.isUpdated = false,
@@ -77,12 +77,12 @@ export const useProducts = defineStore("product", {
 
       this.productInfo = {
         isUpdated: false,
-        id: '',
-        name: '',
+        id: "",
+        name: "",
         price: 0,
         stock: 0,
-        category: '' || null
-      }
+        category: "" || null,
+      };
     },
   },
 });

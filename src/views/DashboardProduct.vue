@@ -1,5 +1,4 @@
 <script setup>
-
 import { onMounted } from "vue";
 import { useProducts } from "../store/index";
 
@@ -8,7 +7,6 @@ const store = useProducts();
 onMounted(() => {
   store.getProduct();
 });
-
 </script>
 
 <template>
@@ -87,13 +85,20 @@ onMounted(() => {
 
           <div class="flex justify-center items-center gap-5">
             <button
-              class="p-3 bg-yellow-600 text-white font-semibold rounded hover:bg-yellow-500" :class="store.productInfo.isUpdated ? 'bg-blue-400' : 'bg-yellow-600'" 
+              class="p-3 bg-yellow-600 text-white font-semibold rounded hover:bg-yellow-500"
+              :class="
+                store.productInfo.isUpdated ? 'bg-blue-400' : 'bg-yellow-600'
+              "
             >
               {{ store.productInfo.isUpdated ? "update" : "add" }}
             </button>
 
-            <button class="p-3 bg-red-600 text-white font-semibold rounded hover:bg-yellow-500" v-if="store.productInfo.isUpdated === true" @click="store.clearStateUpdated">
-                cancel
+            <button
+              class="p-3 bg-red-600 text-white font-semibold rounded hover:bg-yellow-500"
+              v-if="store.productInfo.isUpdated === true"
+              @click="store.clearStateUpdated"
+            >
+              cancel
             </button>
           </div>
         </div>
