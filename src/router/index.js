@@ -7,6 +7,7 @@ import Home from '../views/Home.vue'
 import HomeDashboard from '../views/HomeDashboard.vue'
 import Movie from '../views/Movie.vue'
 import Counter from '../views/Counter.vue'
+import DashboardAdmin from '../views/DashboardAdmin.vue'
 
 
 // Create the router instance
@@ -21,6 +22,7 @@ const router = createRouter({
     { path: '/dashboard', component: HomeDashboard },
     { path: '/movie', component: Movie },
     { path: '/counter', component: Counter },
+    { path: '/user-management', component: DashboardAdmin },
 
   ],
 });

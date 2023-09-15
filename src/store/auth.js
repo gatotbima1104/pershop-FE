@@ -8,8 +8,8 @@ export const authStore = defineStore('auth',  {
       id: '',
       token: '',
       name: '',
-      username: '' || null,
-      password: '',
+      username: 'Super Gatot' || null,
+      password: 'super@admin.com',
       role: '',
     },
     errorMessage: '' || null
@@ -32,23 +32,27 @@ export const authStore = defineStore('auth',  {
     
     async handleLogin(){
       const {username, password} = this.userInfo
+      
       try {
         const res = await axiosInstance.post('/auth/login',{
           username,
-          password
+          password,
         })
         // put token inside variabel
         const token = res.data.token
 
         // set into localStorage
-        localStorage.setItem('token', token)
+        sessionStorage.setItem('token', token)
 
         // set token inside the header
         axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
         //update the userInfo with received token
         this.userInfo.token = token
+        this.userInfo.id = res.data.user.id
         this.userInfo.role = res.data.user.role
+        this.userInfo.password = ''
+      
 
         // router.push('/product')
 
@@ -72,9 +76,22 @@ export const authStore = defineStore('auth',  {
         localStorage.removeItem('token')
         router.push('/login')
 
-        this.userInfo.username = ''
-        this.userInfo.password = ''
+        // reset the current user
+        this.userInfo = {
+          username: '',
+          password: '',
+          id: '',
+          token: '',
+        }
       } 
-    }
+    },
+    
+    // getToken(){
+    //   const token = sessionStorage.getItem('token')
+    //   console.log(token)
+    //   if(token){
+    //     axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    //   }
+    // }
   },
 })
