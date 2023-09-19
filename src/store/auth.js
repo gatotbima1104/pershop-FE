@@ -11,6 +11,7 @@ export const authStore = defineStore('auth',  {
       username: 'Super Gatot' || null,
       password: 'super@admin.com',
       role: '',
+      // isLoggedIn: false
     },
     errorMessage: '' || null
   }),
@@ -52,6 +53,8 @@ export const authStore = defineStore('auth',  {
         this.userInfo.id = res.data.user.id
         this.userInfo.role = res.data.user.role
         this.userInfo.password = ''
+        // this.userInfo.isLoggedIn = true
+        
       
 
         // router.push('/product')
@@ -74,6 +77,7 @@ export const authStore = defineStore('auth',  {
       const confirmation = confirm('Are you sure you want to log out')
       if(confirmation){
         localStorage.removeItem('token')
+        // this.userInfo.isLoggedIn = false
         router.push('/login')
 
         // reset the current user
