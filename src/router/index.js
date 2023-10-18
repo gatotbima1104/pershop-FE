@@ -1,66 +1,38 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { authStore } from './../store/auth';
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import DashboardProduct from "../views/DashboardProduct.vue";
-import DashboardUser from "../views/DashboardUser.vue";
 import Home from "../views/Home.vue";
 import HomeDashboard from "../views/HomeDashboard.vue";
-import Movie from "../views/Movie.vue";
-import Counter from "../views/Counter.vue";
 import DashboardAdmin from "../views/DashboardAdmin.vue";
-import { authStore } from "../store/auth";
+import Socket from "../views/Socket.vue";
 
-// Create the router instance
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", component: Home },
-    { path: "/login", component: Login, },
+    { path: "/login", component: Login },
     { path: "/register", component: Register },
-    {
-      path: "/product",
-      component: DashboardProduct,
-      meta: {
-        needsAuth: true,
-      },
-    },
-    { path: "/user", component: DashboardUser },
-    {
-      path: "/dashboard",
-      component: HomeDashboard,
-      meta: {
-        needsAuth: true,
-      },
-    },
-    {
-      path: "/movie",
-      component: Movie,
-      meta: {
-        needsAuth: true,
-      },
-    },
-    { path: "/counter", component: Counter },
-    {
-      path: "/user-management",
-      component: DashboardAdmin,
-      meta: {
-        needsAuth: true,
-      },
-    },
+    { path: "/web-socket", component: Socket, meta: { requiresAuth: true }},
+    { path: "/product", component: DashboardProduct, meta: { requiresAuth: true } },
+    { path: "/dashboard", component: HomeDashboard, meta: { requiresAuth: true }},
+    { path: "/user-management", component: DashboardAdmin, meta: { requiresAuth: true }},
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.needsAuth) {
-//     if (authStore.isLoggedIn) {
-//       next();
-//     } else {
-//       alert("please login first");
-//       next("/login");
-//     }
-//   } else {
-//     next(); // No authentication required
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  const store = authStore(); // Create an instance of authStore
+  if (to.meta.requiresAuth && !store.userInfo.token) {
+    // If the route requires authentication and the user is not authenticated
+    // Redirect the user to the login page
+    
+    // console.log(store.userInfo.token)
+    alert('Please Login first');
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 export default router;

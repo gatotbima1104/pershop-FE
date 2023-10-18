@@ -1,5 +1,4 @@
 <script setup>
-import axiosInstance from "../lib";
 import { onMounted } from "vue";
 import { userManage } from "../store/user";
 
@@ -9,10 +8,6 @@ onMounted(() => {
   store.getUsers();
 });
 
-const token = sessionStorage.getItem("token");
-if (token) {
-  axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-}
 </script>
 
 <template>
@@ -29,7 +24,7 @@ if (token) {
             <th class="px-4 py-2 border">role</th>
           </tr>
         </thead>
-        <tr v-for="user in store.users" key="store.users.id">
+        <tr v-for="(user, index) in store.users" :key="index">
           <!-- <td class="border px-4 py-2">{{ user.id }}</td> -->
           <td class="border px-4 py-2">{{ user.name }}</td>
           <td class="border px-4 py-2">{{ user.username }}</td>
@@ -59,7 +54,6 @@ if (token) {
           <input type="password" class="bg-slate-300 rounded p-2" 
           v-model="store.userInfo.password"
           />
-
 
           <button
               class="p-3 bg-blue-500 text-white font-semibold rounded hover:bg-yellow-500"              

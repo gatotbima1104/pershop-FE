@@ -1,15 +1,9 @@
 <script setup>
 import { onMounted } from "vue";
 import { useProducts, authStore } from "../store/index";
-import axiosInstance from "../lib";
 
 const store = useProducts();
 const storeAuth = authStore();
-
-const token = sessionStorage.getItem("token");
-if (token) {
-  axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-}
 
 onMounted(async () => {
   store.getProduct();
@@ -41,7 +35,7 @@ onMounted(async () => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in store.products" :key="store.products.id">
+          <tr v-for="(product, index) in store.products" :key="index">
             <td class="border px-4 py-2">{{ product.name }}</td>
             <td class="border px-4 py-2">{{ product.price }}</td>
             <td class="border px-4 py-2">{{ product.stock }}</td>
