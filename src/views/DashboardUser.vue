@@ -22,11 +22,11 @@ const isSidebarShow = () => {
 <template>
   <div class="flex h-screen w-screen">
     <!-- sidebar -->
-    <Sidebar v-if="showSidebar.isShow" key="sidebar" />
+    <Sidebar/>
     <!-- main -->
     <div class="h-full w-full bg-slate-100 overflow-y-auto">
       <!-- header -->
-      <button @click="isSidebarShow">show</button>
+      <!-- <button @click="isSidebarShow">show</button> -->
       <Navbar />
 
       <!-- second header -->
@@ -41,9 +41,9 @@ const isSidebarShow = () => {
         <div class="grid grid-cols-4 gap-4">
           <div class="p-4 rounded-lg bg-white block">
             <UserProfile
-              photo="https://i.vimeocdn.com/portrait/19019098_640x640"
-              name="John Doe"
-              email="john@gmail.com"
+              photo="https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png"
+              name="Muhamad Sumbul"
+              email="sumbul@gmail.com"
             />
 
             <div class="mt-5">
@@ -90,15 +90,15 @@ const isSidebarShow = () => {
             <div class="flex gap-5 items-center p-5 border-b-2">
               <div>
                 <img
-                  src="https://i.vimeocdn.com/portrait/19019098_640x640"
+                  src="https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png"
                   alt=""
                   class="w-[80px] h-[80px] rounded-full"
                 />
               </div>
               <div>
-                <h1 class="font-bold text-lg">John doe</h1>
+                <h1 class="font-bold text-lg">Muhamad Sumbul</h1>
                 <p class="text-slate-500 font-base">
-                  Inquiry about our theme pages design.
+                  You are cashier here
                 </p>
               </div>
             </div>

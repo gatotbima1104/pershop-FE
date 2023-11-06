@@ -17,23 +17,25 @@ const isShow = () => {
     <div
       class="text-dark justify-between flex shadow-md p-5 sticky top-0 bg-white"
     >
-      <div class="flex gap-2">
-        <p>..</p>
+    <div class="flex gap-2">
+        <p>
+          <img src="../assets/shope.png" alt="" class="w-[30px] h-[30px]">
+        </p>
         <!--logo-->
-        <h1 class="font-bold text-xl">CUBA</h1>
+        <h1 class="font-bold text-base">Per commerce</h1>
       </div>
       <div>
         <!-- <button @click="isShow">click</button> -->
-        <p>..</p>
+        <!-- <p>..</p> -->
         <!--burger-->
       </div>
     </div>
 
     <!-- Menu sidebar components layout -->
     <LayoutListSidebar title="GENERAL">
-      <ListSidebar logo="bx:bxs-dashboard" colorLogo="grey" menu="Dashboard" arrow="📌" />
-      <ListSidebar logo="bx:bxs-widget" colorLogo="grey" menu="Widget" arrow="📌" />
-      <ListSidebar logo="bx:layout" colorLogo="grey" menu="Page Layout" arrow="📌" />
+      <ListSidebar logo="bx:bxs-dashboard" colorLogo="grey" menu="Dashboard" arrow="📌" menuLink="/user"/>
+      <ListSidebar logo="bx:bxs-widget" colorLogo="grey" menu="Menu" arrow="📌" menuLink="/menu"/>
+      <!-- <ListSidebar logo="bx:layout" colorLogo="grey" menu="Page Layout" arrow="📌" /> -->
     </LayoutListSidebar>
 
     <LayoutListSidebar title="APPLICATION">
