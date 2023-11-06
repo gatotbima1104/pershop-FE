@@ -51,7 +51,7 @@ export const authStore = defineStore('auth',  {
         
         //CHECK THE ROLE
         if(this.userInfo.role === 'admin'){
-          router.push('/product')
+          router.push('/admin')
         }else{
           router.push('/user')
         }

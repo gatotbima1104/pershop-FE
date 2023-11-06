@@ -56,25 +56,12 @@ export const useProducts = defineStore("product", {
       await this.getProduct();
     },
     async editData(objProduct) {
-      // this.productInfo.name = objProduct.name;
-      // this.productInfo.price = objProduct.price;
-      // this.productInfo.stock = objProduct.stock;
-      // this.productInfo.category = objProduct.category;
-      // this.productInfo.id = objProduct.id;
-      // this.productInfo.isUpdated = true;
       this.productInfo = {
         ...objProduct,
         isUpdated: true,
       };
     },
     async clearStateUpdated() {
-      // this.productInfo.isUpdated = false,
-      // this.productInfo.id = "",
-      // this.productInfo.name = "",
-      // this.productInfo.price = 0,
-      // this.productInfo.stock = 0,
-      // this.productInfo.category = "" || null;
-
       this.productInfo = {
         isUpdated: false,
         id: "",
@@ -84,5 +71,13 @@ export const useProducts = defineStore("product", {
         category: "" || null,
       };
     },
+
+    formatPrice(price){
+      const formattedPrice = Intl.NumberFormat('id-ID', {
+        currency: 'IDR',
+        style: 'currency'
+      }).format(price)
+      return formattedPrice
+    }
   },
 });

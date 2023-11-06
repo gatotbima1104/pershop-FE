@@ -16,6 +16,10 @@ export default {
       type: String,
       default: "text-slate-600 hover:text-white transition-all",
     },
+    menuLink: {
+      type: String,
+      default: "/admin"
+    }
   },
   components: {
     Icon,
@@ -34,7 +38,7 @@ export default {
         :color="colorLogo"
         />
       <!-- logo -->
-      <a href="">{{ menu }}</a>
+      <a :href="menuLink">{{ menu }}</a>
     </div>
     <div>
       <Icon

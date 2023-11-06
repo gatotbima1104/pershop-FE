@@ -9,6 +9,8 @@ export const userManage = defineStore("user", {
       name: '',
       username: '',
       password: '',
+      role: '',
+      isUpdated: false
     }
   }),
   actions: {
@@ -22,14 +24,27 @@ export const userManage = defineStore("user", {
     },
     async handleSubmit() {
       try {
-        await axiosInstance.post('user', {
-          name: this.userInfo.name,
-          username: this.userInfo.username,
-          password: this.userInfo.password
-        });
-        this.getUsers()
-        await this.clearInput()
-        alert('user created successfully')
+        if(this.userInfo.isUpdated == false){
+          await axiosInstance.post('user', {
+            name: this.userInfo.name,
+            username: this.userInfo.username,
+            password: this.userInfo.password,
+            role: this.userInfo.role
+          });
+          await this.clearInput()
+          alert('user created successfully')
+        }else{
+          await axiosInstance.patch("/user/" + this.userInfo.id, {
+            name: this.userInfo.name,
+            username: this.userInfo.username,
+            password: this.userInfo.password,
+            role: this.userInfo.role
+          });
+          alert("product updated successfully");
+          await this.clearStateUpdated();
+        }
+
+        await this.getUsers()
 
       } catch (error) {
         console.log(error);
@@ -41,12 +56,30 @@ export const userManage = defineStore("user", {
         id: '',
         name: '',
         username: '',
-        password: ''
+        password: '',
+        role: ''
       }
     },
-
-    async removeUser(id){
-      
-    }
+    async editData(objUser) {
+      this.userInfo = {
+        ...objUser,
+        isUpdated: true,
+      };
+    },
+    async clearStateUpdated() {
+      this.userInfo = {
+        isUpdated: false,
+        id: "",
+        name: "",
+        username: "",
+        password: "",
+        role: "",
+      };
+    },
+    async removeUser(id) {
+      const confirmation = confirm("Are you sure to delete this product?");
+      confirmation ? await axiosInstance.delete(`/user/${id}`) : null;
+      await this.getUsers();
+    },
   },
 });

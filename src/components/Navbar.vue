@@ -10,14 +10,15 @@ export default {
     UserNav,
     Icon,
   },
+  props: ['title']
 };
 </script>
 
 <template>
   <LayoutNavbar customClass="shadow-lg sticky top-0">
     <div class="flex gap-5 items-center">
-      <p>..</p>
-      <h1 class="font-semibold">Something you love is now on sale!!! 💥</h1>
+      <!-- <p>..</p> -->
+      <h1 class="font-semibold">{{ title }}</h1>
     </div>
 
     <!-- navbar -->
@@ -37,8 +38,8 @@ export default {
 
       <!-- menu -->
       <UserNav
-        foto="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Py3egcy5QB72hVvOgjUBMgHaLH%26pid%3DApi&f=1&ipt=46f8256de7fd5904b5d9d9784c247f08c2aed716875f44a541f4a5e904ec6d87&ipo=images"
-        name="Cuba"
+        foto="https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png"
+        name="Sumbul"
         role="Admin"
       />
     </div>
