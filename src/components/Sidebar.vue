@@ -38,16 +38,16 @@ const isShow = () => {
       <!-- <ListSidebar logo="bx:layout" colorLogo="grey" menu="Page Layout" arrow="📌" /> -->
     </LayoutListSidebar>
 
-    <LayoutListSidebar title="APPLICATION">
-      <ListSidebar logo="bx:clipboard" menu="Kamban Board" arrow="📌" />
-      <ListSidebar logo="bx:bxs-file-blank" menu="File Manajer" arrow="📌" />
-      <ListSidebar logo="bx:objects-vertical-bottom" menu="Ecommerce" arrow="📌" />
-      <ListSidebar logo="bx:bxs-envelope" menu="Email" arrow="📌" />
+    <LayoutListSidebar title="COMING SOON">
+      <ListSidebar logo="bx:clipboard" menu="Coming Soon" arrow="📌" />
+      <ListSidebar logo="bx:bxs-file-blank" menu="Coming Soon" arrow="📌" />
+      <ListSidebar logo="bx:objects-vertical-bottom" menu="Coming Soon" arrow="📌" />
+      <ListSidebar logo="bx:bxs-envelope" menu="Coming Soon" arrow="📌" />
     </LayoutListSidebar>
 
-    <LayoutListSidebar title="FORM & TABLES">
-      <ListSidebar logo="bx:bxs-folder-minus" menu="Forms" arrow="📌" />
-      <ListSidebar logo="bx:table" menu="Tables" arrow="📌" />
+    <LayoutListSidebar title="COMING SOON">
+      <ListSidebar logo="bx:bxs-folder-minus" menu="Coming Soon" arrow="📌" />
+      <ListSidebar logo="bx:table" menu="Coming Soon" arrow="📌" />
     </LayoutListSidebar>
   </div> 
 </template>

@@ -9,6 +9,7 @@ import DashboardAdmin from "../views/DashboardAdmin.vue";
 import ProductsPage from "../views/ProductsPage.vue"
 import UserManagementPage from "../views/UserManagementPage.vue"
 import Menu from "../views/Menu.vue"
+import Chart from "../views/Chart.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,7 +23,7 @@ const router = createRouter({
     { path: "/user-management", component: UserManagementPage, meta: { requiresAuth: true }},
     { path: "/user-management", component: UserManagementPage, meta: { requiresAuth: true }},
     { path: "/menu", component: Menu, meta: { requiresAuth: true }},
-
+    { path: "/chart", component: Chart, meta: { requiresAuth: true }},
   ],
 });
 

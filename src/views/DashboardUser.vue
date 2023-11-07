@@ -17,6 +17,20 @@ const showSidebar = reactive({
 const isSidebarShow = () => {
   showSidebar.isShow = !showSidebar.isShow;
 };
+
+let day = new Date()
+let clock = day.getHours()
+
+let greeting = ref('')
+
+if (clock < 12) {
+  greeting.value = ('Good Morning')
+} else if (clock < 18) {
+  greeting.value = ('Good afternoon')
+} else {
+  greeting.value = ('Good evening')
+}
+
 </script>
 
 <template>
@@ -31,9 +45,9 @@ const isSidebarShow = () => {
 
       <!-- second header -->
       <LayoutNavbar customClass="bg-opacity-80">
-        <TitlePage title="Email Application" />
+        <TitlePage title="About you" />
         <!-- history category -->
-        <HistoryCategory from="Home" to="Email" subject="Email Application" />
+        <HistoryCategory from="Home" to="About" subject="About cashier" />
       </LayoutNavbar>
 
       <!-- column -->
@@ -105,19 +119,9 @@ const isSidebarShow = () => {
 
             <div class="p-5 border-b-2 pb-4">
               <div class="text-slate-500 mb-5">
-                <h3>Hello</h3>
-                <h3>dear sir, good morning</h3>
+                <h3>Hello,  Sumbul</h3>
+                <h3>{{ greeting }}</h3>
               </div>
-
-              <h1 class="font-bold text-2xl mb-4">
-                Inquiry about our theme pages design.
-              </h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
-                optio accusantium, nisi maxime tempore voluptatum libero
-                officiis expedita excepturi dolores? Esse laborum velit deleniti
-                quis placeat totam. Laboriosam, ipsa nihil?
-              </p>
 
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae

@@ -29,7 +29,7 @@ export default {
         </li>
         <li>
           <!-- notification icon -->
-          <a href=""><Icon icon="bx:cart-alt" color="green" /></a>
+          <a href="/chart"><Icon icon="bx:cart-alt" color="green" /></a>
         </li>
         <li>
           <a href=""><Icon icon="bx:money-withdraw" color="green"/></a>

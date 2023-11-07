@@ -1,28 +1,116 @@
 <script>
+export default {
+  props: {
+    title: {
+      type: 'string',
+    },
+    price: {
+      type: 'number'
+    },
+    category: {
+      type: 'string'
+    }
+
+  }
+}
+
 </script>
 
 <template>
-    <div class="max-w-sm w-full lg:max-w-full lg:flex">
-  <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('/img/card-left.jpg')" title="Woman holding a mug">
-  </div>
-  <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-    <div class="mb-8">
-      <p class="text-sm text-gray-600 flex items-center">
-        <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+  <div
+    class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+  >
+    <a href="#">
+      <img
+        class="p-8 rounded-t-lg"
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7cd64c4e-b235-446e-aa77-3b847d7748b8/deprjp3-84a6a08f-f290-42f6-91ad-995b6c26e6f9.jpg/v1/fill/w_1192,h_670,q_70,strp/billie_eilish_painted_on_pink_denim_jacket__by_nikedema_deprjp3-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjI2OCIsInBhdGgiOiJcL2ZcLzdjZDY0YzRlLWIyMzUtNDQ2ZS1hYTc3LTNiODQ3ZDc3NDhiOFwvZGVwcmpwMy04NGE2YTA4Zi1mMjkwLTQyZjYtOTFhZC05OTViNmMyNmU2ZjkuanBnIiwid2lkdGgiOiI8PTQwMzIifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.8LbGIhlNQ8GoOg5AMSorOQpM6jiMIWPhWs3QNMWZFVY"
+        alt="product image"
+      />
+    </a>
+    <div class="px-5 pb-5">
+      <a href="#">
+        <h5
+          class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+        >
+          {{ title }}
+        </h5>
+        <p
+          class="text-base font-thin tracking-tight text-gray-900 dark:text-white"
+        >
+          {{ category }}
+        </p>
+      </a>
+      <div class="flex items-center mt-2.5 mb-5">
+        <svg
+          class="w-4 h-4 text-yellow-300 mr-1"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
         </svg>
-        Members only
-      </p>
-      <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-      <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
-    </div>
-    <div class="flex items-center">
-      <img class="w-10 h-10 rounded-full mr-4" src="/img/jonathan.jpg" alt="Avatar of Jonathan Reinink">
-      <div class="text-sm">
-        <p class="text-gray-900 leading-none">Jonathan Reinink</p>
-        <p class="text-gray-600">Aug 18</p>
+        <svg
+          class="w-4 h-4 text-yellow-300 mr-1"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
+        </svg>
+        <svg
+          class="w-4 h-4 text-yellow-300 mr-1"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
+        </svg>
+        <svg
+          class="w-4 h-4 text-yellow-300 mr-1"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
+        </svg>
+        <svg
+          class="w-4 h-4 text-gray-200 dark:text-gray-600"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
+        </svg>
+        <span
+          class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3"
+          >5.0</span
+        >
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="text-3xl font-bold text-gray-900 dark:text-white"
+          >${{ price }}</span
+        >
+        <a
+          href="#"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >Add to cart</a
+        >
       </div>
     </div>
   </div>
-</div>
 </template>

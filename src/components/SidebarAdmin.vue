@@ -8,6 +8,11 @@ const showSidebar = ref(true)
 const isShow = () => {
   showSidebar.value = !showSidebar.value
 }
+async function logOut (){
+  const tokenUser = localStorage.getItem(token)
+  console.log(tokenUser)
+  // await localStorage.removeItem(token)
+}
 
 </script>
 
@@ -36,6 +41,7 @@ const isShow = () => {
       <ListSidebar logo="bx:bxs-dashboard" colorLogo="grey" menu="Dashboard" arrow="📌" menuLink="/admin"/>
       <ListSidebar logo="bx:bxs-widget" colorLogo="grey" menu="User Management" arrow="📌" menuLink="/user-management"/>
       <ListSidebar logo="bx:layout" colorLogo="grey" menu="Product Management" arrow="📌" menuLink="/product"/>
+      <button @click="logOut">Logout </button>
     </LayoutListSidebar>
 
     <LayoutListSidebar title="COMING SOON">
