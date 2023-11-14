@@ -122,17 +122,5 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-
-    <!-- <button
-      class="p-3 bg-red-400 m-3 rounded font-bold text-white hover:bg-red-600"
-      @click="storeAuth.handleLogoutUser"
-    >
-      logout
-    </button>
-    <button
-      class="p-3 bg-blue-300 m-3 rounded font-bold text-white hover:bg-yellow-500"
-    >
-      <router-link to="/user-management">User Management</router-link>
-    </button> -->
   </div>
 </template>

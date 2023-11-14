@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { authStore } from './../store/auth';
+import { authStore } from "./../store/auth";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-// import DashboardProduct from "../views/DashboardProduct.vue";
 import Home from "../views/Home.vue";
 import DashboardUser from "../views/DashboardUser.vue";
 import DashboardAdmin from "../views/DashboardAdmin.vue";
-import ProductsPage from "../views/ProductsPage.vue"
-import UserManagementPage from "../views/UserManagementPage.vue"
-import Menu from "../views/Menu.vue"
-import Chart from "../views/Chart.vue"
+import ProductsPage from "../views/ProductsPage.vue";
+import UserManagementPage from "../views/UserManagementPage.vue";
+import Menu from "../views/Menu.vue";
+import Chart from "../views/Chart.vue";
+import Socket from "../views/Socket.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,11 +19,20 @@ const router = createRouter({
     { path: "/register", component: Register },
     { path: "/admin", component: DashboardAdmin, meta: { requiresAuth: true } },
     { path: "/product", component: ProductsPage, meta: { requiresAuth: true } },
-    { path: "/user", component: DashboardUser, meta: { requiresAuth: true }},
-    { path: "/user-management", component: UserManagementPage, meta: { requiresAuth: true }},
-    { path: "/user-management", component: UserManagementPage, meta: { requiresAuth: true }},
-    { path: "/menu", component: Menu, meta: { requiresAuth: true }},
-    { path: "/chart", component: Chart, meta: { requiresAuth: true }},
+    { path: "/user", component: DashboardUser, meta: { requiresAuth: true } },
+    {
+      path: "/user-management",
+      component: UserManagementPage,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/user-management",
+      component: UserManagementPage,
+      meta: { requiresAuth: true },
+    },
+    { path: "/menu", component: Menu, meta: { requiresAuth: true } },
+    { path: "/chart", component: Chart, meta: { requiresAuth: true } },
+    { path: "/socket", component: Socket },
   ],
 });
 
@@ -32,10 +41,10 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.userInfo.token) {
     // If the route requires authentication and the user is not authenticated
     // Redirect the user to the login page
-    
+
     // console.log(store.userInfo.token)
-    alert('Please Login first');
-    next('/login');
+    alert("Please Login first");
+    next("/login");
   } else {
     next();
   }

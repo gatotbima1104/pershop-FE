@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axiosInstance from "../lib";
+import Swal from "sweetalert2"
 
 export const useProducts = defineStore("product", {
   state: () => ({
@@ -51,9 +52,26 @@ export const useProducts = defineStore("product", {
       }
     },
     async removeProductById(id) {
-      const confirmation = confirm("Are you sure to delete this product?");
-      confirmation ? await axiosInstance.delete(`/product/${id}`) : null;
-      await this.getProduct();
+      // const confirmation = confirm("Are you sure to delete this product?");
+      Swal.fire({
+        title: "Delete",
+        text: "Are you sure to delete this product?",
+        icon: 'info',
+        confirmButtonText: 'Remove',
+        confirmButtonColor: 'red',
+        cancelButtonText: "Cancel",
+        cancelButtonColor: "Grey",
+        showCancelButton: true
+      }).then( async (result)=> {
+        if(result.isConfirmed){
+          await Swal.fire('Deleted', 'Product deleted successfully', 'success')
+          await axiosInstance.delete(`/product/${id}`);
+          await this.getProduct();
+        } else if (result.isDenied){
+          null
+        }
+      })
+
     },
     async editData(objProduct) {
       this.productInfo = {

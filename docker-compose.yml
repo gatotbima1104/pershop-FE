@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web: 
+    container_name: web
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    ports:
+      - 8080:8080
+    stdin_open: true
+    command: npm run dev
+volumes:
+  node_modules:
+  
